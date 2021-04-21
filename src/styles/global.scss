@@ -39,7 +39,7 @@ body {
 }
 
 body, input, textarea, button {
-  font: 500, 1rem Inter, sans-serif; //Fonte padrão Inter ou sans-serif caso a primeira esteja disponível
+  font: 500 1rem Inter, sans-serif; //Fonte padrão Inter ou sans-serif caso a primeira esteja disponível
   color: var(--gray-500);
 }
 
@@ -58,5 +58,5 @@ h2 {
 }
 
 button {
-  cursor: ponter;
+  cursor: pointer;
 }
