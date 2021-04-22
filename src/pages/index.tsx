@@ -1,17 +1,15 @@
-// import { useEffect } from "react";
+import { useContext } from "react";
 import { GetStaticProps } from "next";
 import Image from 'next/image';
 import Link from 'next/link';
-import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
+import { format, parseISO } from 'date-fns';
+
 import { api } from "../services/api";
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
+import PlayerContext from "../contexts/PlayerContext";
 
 import styles from './home.module.scss';
-// SPA
-// SSR
-// SSG
-
 
 type Episode = {
   id: string;
@@ -19,7 +17,7 @@ type Episode = {
   thumbnail: string;
   description: string;
   members: string;
-  duration: string;
+  duration: number;
   durationAsString: string;
   url: string;
   publishedAt: string;
@@ -42,6 +40,8 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
   //     .then(response => response.json())
   //     .then(data => console.log(data));
   // }, [])
+
+  const { play } = useContext(PlayerContext);
 
   return (
     <div className={styles.homePage}>
@@ -69,7 +69,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   <span>{episode.durationAsString}</span>
                 </div>
 
-                <button type="button">
+                <button type="button" onClick={() => play(episode)}>
                   <img src="/play-green.svg" alt="Reproduzir episódio." />
                 </button>
               </li>
