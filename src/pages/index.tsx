@@ -7,7 +7,7 @@ import { format, parseISO } from 'date-fns';
 
 import { api } from "../services/api";
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
-import PlayerContext from "../contexts/PlayerContext";
+import { PlayerContext } from "../contexts/PlayerContext";
 
 import styles from './home.module.scss';
 
