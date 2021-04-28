@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useRef, useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive'
 import Slider, { Handle } from 'rc-slider';
 
 import 'rc-slider/assets/index.css';
@@ -12,6 +13,7 @@ import { convertDurationToTimeString } from '../../utils/convertDurationToTimeSt
 export default function Player() {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [progress, setProgress] = useState(0);
+  const isTabletOrMobile = useMediaQuery({maxWidth: 768})
 
   const {
     episodeList, 
@@ -69,19 +71,23 @@ export default function Player() {
 
   return (
     <div className={styles.playerContainer}>
-        <header>
-          <img src="/playing.svg" alt="Tocando Agora"/>
-          <strong>Tocando agora</strong>
-        </header>
+        { !isTabletOrMobile &&
+          <header>
+            <img src="/playing.svg" alt="Tocando Agora"/>
+            <strong>Tocando agora</strong>
+          </header>
+        }
 
         { episode ? (
           <div className={styles.currentEpisode}>
-            <Image 
-              width={592} 
-              height={592} 
-              src={episode.thumbnail} 
-              objectFit="cover" 
-            />
+            { !isTabletOrMobile &&
+              <Image 
+                width={592} 
+                height={592} 
+                src={episode.thumbnail} 
+                objectFit="cover" 
+              />
+            }
             <strong>{episode.title}</strong>
             <span>{episode.members}</span>
           </div>

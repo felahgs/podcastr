@@ -29,6 +29,19 @@
       opacity: 0.5
     }
   }
+
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 5.5rem;
+
+    footer {
+      margin-top: 1rem;
+    }
+  }
 }
 
 .currentEpisode {
@@ -51,6 +64,18 @@
     opacity: 0.6;
     line-height: 1.5rem;;
   }
+
+  @media screen and (max-width: 768px) {
+    strong {
+      margin-top: 0.5rem;
+    }
+
+    span {
+      margin: 1rem;
+
+      font-size: 1rem !important;
+    }
+  }
 }
 
 .emptyPlayer {
@@ -66,6 +91,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    padding: rem;
+    height: auto;
+
+    border: none;
+  }
 }
 
 .progress {
@@ -88,6 +120,13 @@
       height: 4px;
       background: var(--purple-300);
       border-radius: 2px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    span {
+      font-size: 1.1rem;
+      width: auto;
     }
   }
 
@@ -136,6 +175,14 @@
       &:hover:not(:disabled) {
         filter: brightness(0.95);
       }
+    }
+
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 1.5rem 0;
+    span {
+      margin-top: 1.5rem;
     }
   }
 }

@@ -7,6 +7,22 @@
     margin-top: 3rem;
     margin-bottom: 1.5rem;
   }
+
+  @media screen and (max-width: 768px) {
+    // height: 46rem;
+    // margin-top: 8.5rem;
+    // margin-bottom: 20rem;
+  }
+
+  @media screen and (max-width: 374) {
+    height: calc(100vh + 2.5rem);
+  }
+
+  @media  screen 
+  and (min-device-width : 374) 
+  and (max-device-width : 768px) {
+    height: calc(100vh - 27.5rem);
+  }
 }
 
 
@@ -14,8 +30,11 @@
   ul {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    
+    @media screen and (min-width: 1680px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   li {
